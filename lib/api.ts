@@ -45,7 +45,7 @@ api.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             // 401 is Unauthorised access, now we handle redirects
-            if (typeof window !== 'undefined' && window.location.pathname !== '/login') {
+            if (typeof window !== 'undefined' && window.location.pathname !== '/login' && window.location.pathname !== '/register') {
                 window.location.href = '/login';
             }
         }
