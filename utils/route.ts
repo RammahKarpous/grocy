@@ -9,6 +9,6 @@ const routes: Record<string, string> = {
     'settings': '/user/settings'
 }
 
-export default function route(name: string) {
+export default function route(name: string, params?: string[]) {
     return routes[name];
 }

@@ -1,4 +1,3 @@
-import { AuthProvider } from "@/contexts/AuthContext";
 import Navigation from "@/components/Navigation";
 
 export default function RootLayout({
@@ -8,11 +7,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
-			<AuthProvider>
-				{children}
-				
-				<Navigation />
-			</AuthProvider>
+			{children}
+			<Navigation />
 		</>
 	);
 }
