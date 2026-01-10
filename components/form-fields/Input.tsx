@@ -4,13 +4,13 @@ interface Input {
     type: string;
     value: string;
     onChange: (e: any) => void;
-    required: boolean;
+    required?: boolean;
     className?: string;
-    disabled: boolean;
+    disabled?: boolean;
     errors?: string[]
 }
 
-export default function Input({ id, label, type, value, onChange, required, className, disabled, errors }: Input) {
+export default function Input({ id, label, type, value, onChange, required = false, className, disabled = false, errors }: Input) {
     return (
         <div className="flex flex-col gap-3 w-full">
             <label htmlFor={id}>{label}</label>
