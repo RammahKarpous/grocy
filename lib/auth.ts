@@ -1,5 +1,8 @@
 import api from "./api";
 
+/**
+ * Define all database colum names (User Model data)
+ */
 export interface User {
     id: number;
     name: string;
@@ -9,6 +12,10 @@ export interface User {
     updated_at: string;
 }
 
+/**
+ * Only the data that's needed to add data to the database. 
+ * In this case everything that's defined within the $fillable[] within the Laravel app
+ */
 export interface RegisterData {
     name: string;
     email: string;
@@ -28,14 +35,14 @@ class AuthService {
 
     async register(data: RegisterData) {
         await this.csrf();
-        return api.post<{user: User; message: string}>('/api/register', data);
+        return api.post<{user: User; message: string}>('/register', data);
     }
 
     async login(data: LoginData) {
         await this.csrf();
 
         await new Promise(resolve => setTimeout(resolve, 1000));
-        return api.post<{user: User; message: string}>('/api/login', data);
+        return api.post<{user: User; message: string}>('/login', data);
     }
 
     async logout() {
@@ -43,7 +50,7 @@ class AuthService {
     }
 
     async getUser() {
-        return api.get<User>('/api/user');
+        return api.get<User>('/user');
     }
 }
 
